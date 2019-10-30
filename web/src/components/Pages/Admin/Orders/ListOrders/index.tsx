@@ -10,39 +10,41 @@ import TableRow from '@material-ui/core/TableRow';
 import { IStateList, ListComponent, TableCellSortable } from 'components/Abstract/List';
 import Toolbar from 'components/Layout/Toolbar';
 import TableWrapper from 'components/Shared/TableWrapper';
-import IUser from 'interfaces/models/user';
 import { IPaginationParams } from 'interfaces/pagination';
 import AccountPlusIcon from 'mdi-react/AccountPlusIcon';
 import RefreshIcon from 'mdi-react/RefreshIcon';
 import React, { Fragment } from 'react';
 import * as RxOp from 'rxjs-operators';
-import userService from 'services/user';
+import orderService from 'services/order';
 import ListItemComponent from 'components/Abstract/ListItem';
+import IOrder from 'interfaces/models/order';
 
 interface IProps {
+    order: IOrder;
     onStart: () => void;
 }
 
 class OrderListItem extends ListItemComponent<IProps> {
 
     constructor(props: IProps) {
-      super(props);
+        super(props);
     }
 
     render(): JSX.Element {
+        const { order } = this.props;
         return (
-          <TableRow>
-            <TableCell>a</TableCell>
-            <TableCell>b</TableCell>
-            <TableCell>c</TableCell>
-            <TableCell>c</TableCell>
-          </TableRow>
+            <TableRow>
+                <TableCell>{order.description}</TableCell>
+                <TableCell>{order.amount}</TableCell>
+                <TableCell>{order.value}</TableCell>
+                <TableCell>X</TableCell>
+            </TableRow>
         );
-      }
+    }
 }
 
-interface IState extends IStateList<IUser> {
-    current?: IUser;
+interface IState extends IStateList<IOrder> {
+    current?: IOrder;
     formOpened?: boolean;
 }
 
@@ -55,17 +57,17 @@ export default class OrderListPage extends ListComponent<{}, IState> {
     ];
 
     constructor(props: {}) {
-        super(props, 'fullName');
+        super(props, 'description');
     }
 
     componentDidMount() {
-        //this.loadData();
+        this.loadData();
     }
 
     loadData = (params: Partial<IPaginationParams> = {}) => {
         this.setState({ loading: true, error: null });
 
-        userService
+        orderService
             .list(this.mergeParams(params))
             .pipe(
                 RxOp.logError(),
@@ -77,7 +79,7 @@ export default class OrderListPage extends ListComponent<{}, IState> {
     handleRefresh = () => this.loadData();
 
     render() {
-        const { loading } = this.state;
+        const { items, loading } = this.state;
 
         return (
             <Fragment>
@@ -114,11 +116,10 @@ export default class OrderListPage extends ListComponent<{}, IState> {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {/* {this.renderEmptyAndErrorMessages(3)}
-                                {items.map(user => (
-                                    <ListItem key={user.id} user={user} onEdit={this.handleEdit} onDeleteComplete={this.loadData} />
-                                ))} */}
-                                <OrderListItem onStart={() => console.log("começou")}/>
+                                {this.renderEmptyAndErrorMessages(3)}
+                                {items.map(order => (
+                                    <OrderListItem key={order.id} order={order} onStart={() => console.log("começou")} />
+                                ))}
                             </TableBody>
                         </Table>
                     </TableWrapper>
