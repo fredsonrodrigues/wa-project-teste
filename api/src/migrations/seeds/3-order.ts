@@ -16,9 +16,9 @@ export async function seed(knex: Knex): Promise<void> {
   for (let x = 0; x < 10; x++) {
 
     const order: IOrder = {
-      amount: "4",
-      description: "Suco de Uva",
-      value: "R$ 25,00"
+      amount: '4',
+      description: 'Suco de Uva',
+      value: 'R$ 25,00'
     };
 
     await knex.insert(order).into('Order');
