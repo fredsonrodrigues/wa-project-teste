@@ -4,11 +4,13 @@ import { WithStyles } from 'decorators/withStyles';
 import { enRoles } from 'interfaces/models/user';
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon';
 import ViewDashboardIcon from 'mdi-react/ViewDashboardIcon';
+import SmartphoneIcon from 'mdi-react/SmartphoneIcon';
 import React, { PureComponent } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import DashboardIndexPage from './Dashboard';
 import UserIndexPage from './User';
+import OrderIndexPage from './Orders'
 
 interface IProps {
   classes?: any;
@@ -43,6 +45,12 @@ export default class AdminPage extends PureComponent<IProps, {}> {
       display: 'Usuários',
       role: enRoles.admin,
       icon: AccountMultipleIcon
+    },
+    {
+      path: '/pedidos-app',
+      display: 'Pedidos - App',
+      role: enRoles.admin,
+      icon: SmartphoneIcon
     }
   ];
 
@@ -62,6 +70,7 @@ export default class AdminPage extends PureComponent<IProps, {}> {
             <main ref={this.mainContent} className={classes.content}>
               <Switch>
                 <PermissionRoute path='/usuarios' role={enRoles.sysAdmin} component={UserIndexPage} />
+                <PermissionRoute path='/pedidos-app' role={enRoles.sysAdmin} component={OrderIndexPage} />
                 <Route path='/' component={DashboardIndexPage} />
                 <Route render={this.renderRedirect} />
               </Switch>
