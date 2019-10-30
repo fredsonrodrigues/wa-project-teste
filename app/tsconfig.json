@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "jsx": "react-native",
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
+    "outDir": "bin"
+  },
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.js"
+  ],
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules",
+    "bower_components"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "HookyQR.beautify",
+    "EditorConfig.editorconfig",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "rbbit.typescript-hero",
+    "ms-vscode.node-debug2",
+    "dbaeumer.vscode-eslint"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "ecmaVersion": 10,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+    }],
+    "no-restricted-imports": ["error"],
+    "linebreak-style": ["error", "unix"],
+    "max-lines": ["error", 300],
+    "max-len": ["error", 150],
+    "no-multiple-empty-lines": ["error", {
+      "max": 1
+    }],
+    "no-trailing-spaces": ["error"],
+    "no-extra-semi": ["error"],
+    "no-var": ["error"],
+    "quotes": ["error", "single"],
+    "quote-props": ["error", "as-needed"],
+    "object-shorthand": ["error"],
+    "semi": ["error", "always"],
+    "camelcase": ["error", {
+      "properties": "always"
+    }],
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/adjacent-overload-signatures": ["error"],
+    "@typescript-eslint/interface-name-prefix": ["error", "always"],
+    "@typescript-eslint/explicit-member-accessibility": ["error", {
+      "accessibility": "explicit",
+      "overrides": {
+        "accessors": "explicit",
+        "constructors": "no-public",
+        "methods": "explicit",
+        "properties": "explicit",
+        "parameterProperties": "explicit"
+      }
+    }],
+    "@typescript-eslint/member-ordering": ["error"],
+    "@typescript-eslint/no-namespace": ["error"],
+    "@typescript-eslint/no-require-imports": ["error"]
+  }
+}

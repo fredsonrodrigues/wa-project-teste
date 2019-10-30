@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/server/declarations"],
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "importHelpers": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "alwaysStrict": true,
+    "allowJs": true,
+    "rootDir": "./src/server",
+    "baseUrl": "./src/server",
+    "outDir": "bin/server"
+  },
+  "include": [
+    "src/server/**/*.ts",
+    "src/server/**/*.d.ts"
+  ],
+  "compileOnSave": false
+}

@@ -1,0 +1,2 @@
+json_key_file("~/keys/api-9088329777511910790-593722-9eb2c40bd729.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("br.com.waproject.base") # e.g. com.krausefx.app

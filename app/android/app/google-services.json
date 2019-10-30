@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "342330085837",
+    "firebase_url": "https://waproject-a73b8.firebaseio.com",
+    "project_id": "waproject-a73b8",
+    "storage_bucket": "waproject-a73b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342330085837:android:5cda999b7c089e6c",
+        "android_client_info": {
+          "package_name": "br.com.waproject.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342330085837-uidvj207jjev4unf0tiu0ndvhlkebadn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.waproject.app",
+            "certificate_hash": "bf4a5935f1b1eba4e72056c48872aa8a1d8e33fd"
+          }
+        },
+        {
+          "client_id": "342330085837-hdpamasp70luntomk266nmd0irqui7jf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKRDDsMAnSwFgRgIIraViN84jSmQ0BXIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342330085837-hdpamasp70luntomk266nmd0irqui7jf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "342330085837-kkt2hrqgvnc7nmql7jpo61es5nnnj7em.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.estheticaligner.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342330085837:android:88992b79fa5dd548",
+        "android_client_info": {
+          "package_name": "br.com.waproject.base"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342330085837-ujeb4guka5pt1pgg8s820r9i4gkhnskq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.waproject.base",
+            "certificate_hash": "bf4a5935f1b1eba4e72056c48872aa8a1d8e33fd"
+          }
+        },
+        {
+          "client_id": "342330085837-hdpamasp70luntomk266nmd0irqui7jf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKRDDsMAnSwFgRgIIraViN84jSmQ0BXIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342330085837-hdpamasp70luntomk266nmd0irqui7jf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "342330085837-kkt2hrqgvnc7nmql7jpo61es5nnnj7em.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.estheticaligner.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

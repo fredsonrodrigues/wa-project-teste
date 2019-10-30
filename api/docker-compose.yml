@@ -1,0 +1,38 @@
+version: '2'
+services:
+
+  web:
+    container_name: waproject-api
+    build: docker/dev
+    ports:
+      - "3001:3000"
+      - "5859:5859"
+    environment:
+      - NODE_ENV=development
+      - DNS=http://localhost:3000
+      - SENTRY_KEY=
+      - MAILGUN_FROM=
+      - MAILGUN_APIKEY=
+      - MAILGUN_DOMAIN=
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_DB=waproject
+      - DATABASE_USER=docker
+      - DATABASE_PASSWORD=123mudar
+    volumes:
+      - .:/src:cached
+      - ./docker/dev/start.sh:/usr/local/bin/start.sh:cached
+    links:
+      - database
+
+  database:
+    container_name: waproject-database
+    image: postgres:10.4-alpine
+    environment:
+      - POSTGRES_DB=waproject
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=123mudar
+    volumes:
+      - ./.data/postgresql:/var/lib/postgresql/data
+    ports:
+      - "3002:5432"

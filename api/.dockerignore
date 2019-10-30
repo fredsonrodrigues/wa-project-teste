@@ -1,0 +1,12 @@
+.git
+.data
+.vscode
+.editorconfig
+.gitignore
+bin
+bitbucket-pipelines.yml
+README.md
+Dockerfile
+docker/dev/Dockerfile
+docker/prod/Dockerfile
+scripts

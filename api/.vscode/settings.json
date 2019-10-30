@@ -1,0 +1,28 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "files.exclude": {
+    "**/bin/**": true,
+    "node_modules/**": true,
+    "mochawesome-reports/**": true,
+    ".data/**": true,
+    "upload/**": true,
+    "v8-compile-cache*": true
+  },
+  "javascript.implicitProjectConfig.checkJs": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "typescriptHero.imports.organizeOnSave": true
+}

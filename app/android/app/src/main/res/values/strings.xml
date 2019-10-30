@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Wa Project</string>
+    <string name="facebook_app_id">231990960983128</string>
+    <string name="fb_login_protocol_scheme">fb231990960983128</string>
+    <string name="bugsnag_appkey">be00ba79aeb4c0d0bc52e7be19a48462</string>
+</resources>

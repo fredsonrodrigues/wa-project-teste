@@ -1,0 +1,8 @@
+{
+  "apps": [{
+    "name": "api",
+    "script": "bin/server/main.js",
+    "watch": false,
+    "exec_mode": "cluster"
+  }]
+}

@@ -1,0 +1,12 @@
+node_modules
+bin
+*.log
+mochawesome-reports
+output-emails
+coverage
+.data
+npm-debug*
+upload/**
+v8-compile-cache*
+.DS_Store
+.idea

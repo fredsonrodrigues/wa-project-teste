@@ -1,0 +1,8 @@
+lane :release do
+  sh("(cd ../../ && sh ./scripts/change-version.sh)")
+  
+  gradle(task: "clean assembleRelease")
+  upload_to_play_store
+
+  sh("(cd ../../ && sh ./scritps/upload-sourcemap.android.sh)")
+end
