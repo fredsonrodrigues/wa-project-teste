@@ -18,6 +18,7 @@ import * as RxOp from 'rxjs-operators';
 import orderService from 'services/order';
 import ListItemComponent from 'components/Abstract/ListItem';
 import IOrder from 'interfaces/models/order';
+import { IOption } from 'components/Shared/DropdownMenu';
 
 interface IProps {
     order: IOrder;
@@ -25,9 +26,11 @@ interface IProps {
 }
 
 class OrderListItem extends ListItemComponent<IProps> {
-
+    private readonly options: IOption[];
+    
     constructor(props: IProps) {
         super(props);
+        this.options = [];
     }
 
     render(): JSX.Element {
@@ -37,7 +40,7 @@ class OrderListItem extends ListItemComponent<IProps> {
                 <TableCell>{order.description}</TableCell>
                 <TableCell>{order.amount}</TableCell>
                 <TableCell>{order.value}</TableCell>
-                <TableCell>X</TableCell>
+                <TableCell>{this.renderSideMenu(this.options)}</TableCell>
             </TableRow>
         );
     }
