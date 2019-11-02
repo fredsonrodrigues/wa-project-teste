@@ -5,6 +5,13 @@ import ButtonHeaderProfile from '~/components/Shared/ButtonHeaderProfile';
 import { classes } from '~/assets/theme';
 import BaseComponent from '~/components/Shared/Abstract/Base';
 
+import Toast from '~/facades/toast';
+import orderService from '~/services/order';
+import { loader } from '~/helpers/rxjs-operators/loader';
+import { logError } from '~/helpers/rxjs-operators/logError';
+import { bindComponent } from '~/helpers/rxjs-operators/bindComponent';
+import { IOrder } from '~/interfaces/models/order';
+
 interface IState {
   animationFade: Animated.Value;
   animationTranslate: Animated.Value;
@@ -26,9 +33,13 @@ export default class OrderPage extends BaseComponent<{}, IState> {
       drawerIcon: ({ tintColor }) => <Icon name='restaurant' style={{ color: tintColor }} />
     };
   };
+
   constructor(props: any) {
     super(props);
     this.onValueChange = this.onValueChange.bind(this);
+    this.onAmountChange = this.onAmountChange.bind(this);
+    this.handleForm = this.handleForm.bind(this);
+
     this.state = {
       selected: 'key1',
       price: '0,00',
@@ -46,9 +57,32 @@ export default class OrderPage extends BaseComponent<{}, IState> {
   onValueChange(value: string) {
     this.setState({
       selected: value,
-      price: this.valorProdutos.filter(e => e.cod === value)[0].valor
+      price: this.valorProdutos.filter(e => e.cod === value)[0].valor,
+      qtd: '1'
     });
   }
+
+  onAmountChange(value: string) {
+    this.setState({
+      qtd: value
+    });
+  }
+
+  handleForm = () => {
+    let order: IOrder = {};
+    order.description = this.state.selected;
+    order.amount = this.state.qtd;
+    order.value = this.state.price;
+
+    orderService
+      .save(order)
+      .pipe(
+        loader(),
+        logError(),
+        bindComponent(this)
+      )
+      .subscribe(() => Toast.show('Salvo Com Sucesso'), err => Toast.showError(err));
+  };
 
   render(): JSX.Element {
     return (
@@ -74,13 +108,13 @@ export default class OrderPage extends BaseComponent<{}, IState> {
               </Item>
               <Item>
                 <Label>Quantidade: </Label>
-                <Input type='number' value={this.state.qtd} />
+                <Input type='number' value={this.state.qtd} onChange={this.onAmountChange} />
               </Item>
               <Item fixedLabel last>
                 <Label>Valor do suco: </Label>
                 <Text>{this.state.price}</Text>
               </Item>
-              <Button style={styles.button}>
+              <Button style={styles.button} onPress={this.handleForm}>
                 <Text>Fazer Pedido</Text>
               </Button>
             </Form>
