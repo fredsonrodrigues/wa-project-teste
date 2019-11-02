@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, Container, Text, View, Icon, Button, Picker, Form, Content } from 'native-base';
+import { Animated, Container, Text, View, Icon, Button, Picker, Form, Content, Input, Item, Label } from 'native-base';
 import { StatusBar, StyleSheet } from 'react-native';
 import ButtonHeaderProfile from '~/components/Shared/ButtonHeaderProfile';
 import { classes } from '~/assets/theme';
@@ -31,7 +31,8 @@ export default class OrderPage extends BaseComponent<{}, IState> {
     this.onValueChange = this.onValueChange.bind(this);
     this.state = {
       selected: 'key1',
-      price: '0,00'
+      price: '0,00',
+      qtd: '1'
     };
 
     this.valorProdutos = [
@@ -56,21 +57,30 @@ export default class OrderPage extends BaseComponent<{}, IState> {
         <View style={styles.container}>
           <Content>
             <Form>
-              <Text>Escolha o seu sabor: </Text>
-              <Picker
-                note
-                mode='dropdown'
-                style={styles.picker}
-                selectedValue={this.state.selected}
-                onValueChange={this.onValueChange}
-              >
-                <Picker.Item label='Suco de Maçã' value='key0' />
-                <Picker.Item label='Suco de Uva' value='key1' />
-                <Picker.Item label='Suco de Maracujá' value='key2' />
-                <Picker.Item label='Água' value='key3' />
-              </Picker>
-              <Text>Valor do suco: {this.state.price}</Text>
-              <Button>
+              <Item>
+                <Text>Escolha o seu sabor: </Text>
+                <Picker
+                  note
+                  mode='dropdown'
+                  style={styles.picker}
+                  selectedValue={this.state.selected}
+                  onValueChange={this.onValueChange}
+                >
+                  <Picker.Item label='Suco de Maçã' value='key0' />
+                  <Picker.Item label='Suco de Uva' value='key1' />
+                  <Picker.Item label='Suco de Maracujá' value='key2' />
+                  <Picker.Item label='Água' value='key3' />
+                </Picker>
+              </Item>
+              <Item>
+                <Label>Quantidade: </Label>
+                <Input type='number' value={this.state.qtd} />
+              </Item>
+              <Item fixedLabel last>
+                <Label>Valor do suco: </Label>
+                <Text>{this.state.price}</Text>
+              </Item>
+              <Button style={styles.button}>
                 <Text>Fazer Pedido</Text>
               </Button>
             </Form>
@@ -84,10 +94,12 @@ export default class OrderPage extends BaseComponent<{}, IState> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: 'white'
   },
   picker: {
     width: 120
+  },
+  button: {
+    justifyContent: 'center'
   }
 });
