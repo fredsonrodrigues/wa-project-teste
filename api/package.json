@@ -60,7 +60,7 @@
     "objection": "1.6.9",
     "password-generator": "2.2.0",
     "pg": "7.12.1",
-    "pug": "2.0.4",
+    "pug": "3.0.1",
     "source-map-support": "0.5.13",
     "tslib": "1.10.0",
     "uuid": "3.3.3"
