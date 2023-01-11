@@ -53,7 +53,7 @@
     "inline-css": "2.4.2",
     "joi": "14.3.1",
     "jsonwebtoken": "8.5.1",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "lodash": "4.17.13",
     "mailgun-js": "0.22.0",
     "morgan": "1.9.1",
